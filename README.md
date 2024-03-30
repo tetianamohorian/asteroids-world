@@ -1,60 +1,59 @@
 # Asteroids
-### 1. Popis hry
+### 1. Game description
 
-Hráč ovláda vesmírnu loď, ktorá sa pohybuje doľava a doprava a strieľa na asteroidy. Cieľom hry je zničiť všetky asteroidy a získať čo najviac bodov. Hra má tri úrovne, v každej z nich sa objavujú asteroidy, ktoré sa pohybujú po obrazovke. Hráč musí vyhýbať sa zrážkam s asteroidmi a strieľať na ne, aby ich zničil. Ak sa hráč zrazí s asteroidom, stratí život. Hra sa končí, ak hráč stratí všetky životy. Po úspešnom dokončení každej úrovne má hráč možnosť vybrať si ďalšiu úroveň alebo ukončiť hru.
+The player controls a spaceship that moves left and right and shoots at asteroids. The aim of the game is to destroy all the asteroids and score as many points as possible. The game has three levels, in each of which asteroids appear and move around the screen. The player must avoid collisions with asteroids and shoot at them to destroy them. If the player collides with an asteroid, he loses a life. The game ends if the player loses all lives. After successfully completing each level, the player has the option to choose the next level or quit the game.
 
-### 2. Ako hru preložiť a spustiť ?
+### 2. How to translate and run the game ?
 
-- Program skompilujte pomocou príkazu
+- Compile the program using the command
     
     ````c
      make
     ````
-- Spustite program pomocou príkazu
+- Run the program using the command
     
     ````c
     ./game
     ````
 
-### 3. Pokyny na hranie hry
+### 3. Instructions on how to play the game
 
-- Hráčova vesmírna loď je označená písmenom "P". Pomocou klávesov so šípkami vľavo a vpravo sa loď pohybuje horizontálne.
+- The player's spaceship is marked with a "P". Use the left and right arrow keys to move the ship horizontally.
 
-- Ak chcete strieľať, stlačte medzerník. Pri každom jeho stlačení loď vystrelí jednu guľku smerom nadol.
+- To shoot, press the space bar. Each time you press it, the ship fires one bullet downwards.
 
-- Asteroidy sú označené písmenom "A". Vaším cieľom je zničiť asteroidy tak, že ich zasiahnete strelami. Keď sa guľka zrazí s asteroidom, asteroid aj guľka zmiznú a vy získate body.
+- Asteroids are marked with the letter "A". Your goal is to destroy the asteroids by hitting them with missiles. When a bullet collides with an asteroid, both the asteroid and the bullet disappear and you score points.
 
-- Hra sa končí, ak sú zničené všetky asteroidy alebo ak asteroid preletí okolo lode alebo do nej narazí.
+- The game ends if all asteroids are destroyed or if an asteroid flies past or crashes into the ship.
 
-- Máte tri životy. Keď okolo vás preletí asteroid alebo sa zrazí s vesmírnou loďou, stratíte jeden život. Ak vám dôjdu životy, hra sa skončí a vy prehráte.
+- You have three lives. If an asteroid flies past you or collides with a spaceship, you lose one life. If you run out of lives, the game ends and you lose.
 
-- Vaše skóre sa zobrazuje v pravom hornom rohu obrazovky.
+- Your score is displayed in the top right corner of the screen.
 
-- Ak vyhráte, po skončení hry sa zobrazí ponuka, v ktorej si môžete vybrať novú úroveň alebo ukončiť hru.
+- If you win, a menu will appear at the end of the game, allowing you to choose a new level or exit the game.
 
-- Ak chcete vybrať úroveň z ponuky, stlačte príslušné tlačidlo (1, 2, 3).
+- To select a level from the menu, press the corresponding button (1, 2, 3).
 
-- Ak chcete ukončiť hru, vyberte v ponuke možnosť "Exit" (Ukončiť).
+- To exit the game, select 'Exit' from the menu.
 
-### 4. Ako je hra naprogramovaná?
+### 4. How is the game programmed?
 
-- Najdôležitejšie herné funkcie a ich funkcie
+- The most important game features and their functions
 
-    * Funkcia init_game_level_1() inicializuje prvú úroveň hry. Vytvorí inštanciu štruktúry Game a nastaví počiatočné hodnoty pre hráča, asteroidy, náboje, skóre a životy.
+    * The init_game_level_1() function initializes the first level of the game. It creates an instance of the Game structure and sets the initial values for the player, asteroids, charges, score, and lives.
 
-    * Podobne funkcie init_game_level_2() a init_game_level_3() inicializujú úrovne 2 a 3.
+    * Similarly, the init_game_level_2() and init_game_level_3() functions initialize levels 2 and 3.
 
-    * Funkcia world_event() spracováva udalosti herného sveta. Reaguje na stlačenia klávesov hráča (ľavý, pravý, medzerník), aktualizuje pozície striel a asteroidov a spracováva kolízie striel a asteroidov. Ak už nie je žiadny asteroid nažive, zavolá sa funkcia draw_game(), ktorá zobrazí aktuálny stav hry a vyzve používateľa, aby vybral ďalšiu úroveň alebo ukončil hru.
+    * The world_event() function handles game world events. It responds to player keystrokes (left, right, spacebar), updates missile and asteroid positions, and handles missile and asteroid collisions. If no asteroid is alive, the draw_game() function is called, which displays the current game state and prompts the user to select the next level or quit the game.
 
-    * Draw_game() zobrazí aktuálny stav hry. Na obrazovku terminálu nakreslí hráča, asteroidy a guľky a zobrazí informácie o dĺžke života hráča a skóre.
+    * Draw_game() displays the current state of the game. It draws the player, asteroids and bullets on the terminal screen and displays information about the player's lifetime and score.
 
-- Dôležité konštrukcie v tejto hre sú:
+- Important constructions in this game are:
+    * Initialization of game levels with different parameters such as speed, initial positions of objects and number of asteroids.
+    * Game world event processing including keystrokes, object position updates and collision handling.
+    * Display the current state of the game on the terminal screen using the draw_game() function.
 
-    * Inicializácia herných úrovní s rôznymi parametrami, ako sú rýchlosť, počiatočné pozície objektov a počet asteroidov.
-    * Spracovanie udalostí herného sveta vrátane stlačenia klávesov, aktualizácie pozícií objektov a spracovania kolízií.
-    * Zobrazenie aktuálneho stavu hry na obrazovke terminálu pomocou funkcie draw_game().
-
-### 5. Odkazy na zdrojový kód a webové stránky, ktoré boli použité pri riešení
+### 5. Links to source code and websites that were used in the solution
 
 -   [GitHub Game World](https://github.com/hladek/world)
    
@@ -62,15 +61,11 @@ Hráč ovláda vesmírnu loď, ktorá sa pohybuje doľava a doprava a strieľa n
 
 -   [GitHub Asteroids](https://github.com/maslovsa/asteroids/tree/master/Classes)
 
-### 6. Používanie hry so ZAPа
+### 6. World Library Modifications
 
-Nepoužila som hru od ZAP, pretože to bola nudná hra (2048)
+Adding two functions: menu() and get_key().
 
-### 7. Modifikácie knižnice World
+- menu(): This function is responsible for setting up the ncurses library and configuring the terminal to work in curses mode. The initscr()function initializes the screen and other internal structures required by ncurses. The noecho()function disables the display of user input, so that characters entered by the user are not displayed on the screen. The cbreak()function enables cbreak mode, which allows the program to immediately read user input without waiting for a newline character.
+Useful for displaying menus at the beginning of a game and after a win.
 
-Pridanie dvoch funkcií: menu() a get_key().
-
-- menu(): Táto funkcia je zodpovedná za nastavenie knižnice ncurses a konfiguráciu terminálu na prácu v režime curses. Funkcia initscr()inicializuje obrazovku a ďalšie vnútorné štruktúry, ktoré vyžaduje ncurses. Funkcia noecho()zakáže zobrazovanie užívateľského vstupu, takže znaky zadané užívateľom sa nezobrazia na obrazovke. Funkcia cbreak()zapína režim cbreak, ktorý umožňuje programu okamžite prečítať vstup používateľa bez čakania na znak nového riadku.
-Užitočné na zobrazenie ponúk na začiatku hry a po výhre.
-
-- get_key(): Táto funkcia používa funkciu getch() z knižnice ncurses na čítanie jedného znaku užívateľského vstupu z terminálu. To umožňuje programu zachytiť stlačenia klávesov a použiť ich na ďalšie spracovanie. Túto funkciu potrebujete pre menu, stlačenie klávesu vyberie buď úroveň, alebo ukončenie
+- get_key(): this function uses the getch() function from the ncurses library to read a single character of user input from the terminal. This allows the program to capture keystrokes and use them for further processing. You need this function for menus, a keystroke selects either level or exit
