@@ -51,10 +51,6 @@ A simple terminal-based C game inspired by classic arcade-style space shooters. 
 - Use of Makefile for project automation
 - Debugging with `gdb`
 
-## 📸 Screenshots
-
-_Add a screenshot or GIF of gameplay here if possible._
-
 ## 📚 License
 
 This project is open-source and available under the MIT License.
